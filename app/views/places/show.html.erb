@@ -31,6 +31,10 @@
     <a class="btn btn-secondary" href="/places">Back to All Places</a>
   </p>
   </div>
+  <div class="row">
+  
+  <p><%= button_to "Delete this place", @place, method: :delete %></p>
+  </div>
 <% else %>
   You must first <a href="/sessions/new">login</a> to view your posts.
 <% end %>

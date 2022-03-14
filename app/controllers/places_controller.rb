@@ -22,7 +22,21 @@ class PlacesController < ApplicationController
     redirect_to "/places"
   end
 
+  def edit
+      @place = Place.find(params["id"])
+  end
 
+  def update
+      @place = Place.find(params["id"])
+      @place.update(params["place"])
+      redirect_to "/places"
+  end
+
+  def destroy
+      @place = Place.find(params["id"])
+      @place.destroy
+      redirect_to "/places"
+  end
 
 end
 

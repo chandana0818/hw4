@@ -15,4 +15,20 @@ class PostsController < ApplicationController
     
   end
 
+  def edit
+    @post = Post.find(params["id"])
+  end
+
+  def update
+      @post = Post.find(params["id"])
+      @post.update(params["post"])
+      redirect_to "/places/#{@post.place.id}"
+  end
+
+  def destroy
+      @post = Post.find(params["id"])
+      @post.destroy
+      redirect_to "/places/#{@post.place.id}"
+  end
+
 end
