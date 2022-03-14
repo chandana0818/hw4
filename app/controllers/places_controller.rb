@@ -2,15 +2,13 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+    
   end
 
   def show
-    if @current_user
-      @place = Place.find(params["id"])
-    else
-      flash[:notice] = "Login first."
-      redirect_to "/sessions/new"
-    end
+    
+    @place = Place.find(params["id"])
+    
   end
 
   def new
