@@ -1,12 +1,21 @@
 <% if @current_user %>
   <h1><%= @place.name %></h1>
 
-  <h2>My Posts</h2>
+  <div class="row">
+   <h2>My Posts</h2>
   <% for post in @place.posts %>
-    <h3><%= post.title %></h3>
-    <h4><%= post.posted_on %></h4>
-    <p><%= post.description %></p>
+    <div class="col-md-3 col-sm-6">
+      <h3><%= post.title %></h3>
+      <% if post.uploaded_image.attached? %>
+        <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+      <% else %>
+        <img src="<%= post.image %>" class="img-fluid">
+      <% end %>
+      <h4><%= post.posted_on %></h4>
+      <p><%= post.description %></p>
+    </div>
   <% end %>
+</div>
 
   <p>
     <a href="/posts/new?place_id=<%= @place.id %>">New Post</a>
@@ -18,3 +27,4 @@
 <% else %>
   You must first <a href="/sessions/new">login</a> to view your posts.
 <% end %>
+
