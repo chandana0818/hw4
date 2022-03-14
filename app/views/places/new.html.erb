@@ -2,12 +2,14 @@
 
 <% if @current_user %>
   <%= form_with model: @place do |form| %>
+  <div class="mb-3">
     <p>
-      <%= form.label "name" %>
-      <%= form.text_field "name" %>
+      <%= form.label "name", class: "form-label"%>
+      <%= form.text_field "name", class: "form-control" %>
     </p>
+    </div>
     <p>
-      <%= form.submit %>
+      <%= form.submit "Create Place", class: "btn btn-primary" %>
     </p>
   <% end %>
 <% else %>

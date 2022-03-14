@@ -1,5 +1,5 @@
 <% if @current_user %>
-  <h1><%= @place.name %></h1>
+  <h2><%= @place.name %></h2>
 
   <div class="row">
    <h2>My Posts</h2>
@@ -22,13 +22,13 @@
 
  <div class="row">
   <p>
-    <a href="/posts/new?place_id=<%= @place.id %>">New Post</a>
+    <a class="btn btn-success"  href="/posts/new?place_id=<%= @place.id %>">New Post</a>
   </p>
 </div>
 
 <div class="row">
   <p>
-    <a href="/places">Back to All Places</a>
+    <a class="btn btn-secondary" href="/places">Back to All Places</a>
   </p>
   </div>
 <% else %>
